@@ -1,0 +1,55 @@
+.task-info{
+    margin-top: 60px;
+    width: 35vw;
+    height: 25vh;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+}
+.task-scroll{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: -17px;
+    overflow-y: scroll;       
+}
+.level-btns, .level-dropdown{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+.level-dropdown{
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #FFC745;
+    padding-left: 5px;
+    /* padding-right: 5px; */
+}
+.task-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.left-arrow {
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 10px solid #FFC745;
+    border-bottom: 10px solid transparent;
+  }
+
+  .right-arrow {
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 10px solid #FFC745;
+    border-bottom: 10px solid transparent;
+  }

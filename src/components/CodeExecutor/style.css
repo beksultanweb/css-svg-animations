@@ -1,0 +1,7 @@
+iframe {
+    width: 40vw;
+    height: 70vh;
+    border: 5px dashed #FFC745;
+    overflow: hidden;
+    margin: 0;
+  }

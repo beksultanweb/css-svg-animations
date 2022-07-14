@@ -1,0 +1,32 @@
+button{
+    background-color: #FFC745;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px;
+    padding-right: 10px;
+    /* border: none; */
+    /* color: #fff; */
+    font-family: 'Press Start 2p';
+
+
+    align-items: center;
+	display: flex;
+	margin:5px;
+    font-weight: bold;
+    padding: 10px 0 10px 10px ;
+    /* background-color: lightgray; */
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: black;
+    -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0 .2em rgb(30, 29, 29); 
+    cursor: pointer;
+}
+button:active {
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}

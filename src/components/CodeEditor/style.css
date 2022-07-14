@@ -1,0 +1,8 @@
+.code-editor {
+    width: 100%;
+  }
+  .code-editor .CodeMirror-wrap {
+    border-radius: 4px;
+    padding: 0.25rem;
+  }
+  
