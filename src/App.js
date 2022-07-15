@@ -11,7 +11,7 @@ import Modal from './components/modal';
 import { CodeExecutor } from './components/CodeExecutor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotateRight, faLightbulb, faCheck } from '@fortawesome/free-solid-svg-icons'
-// import BikeSvgComponent from './lessons/bikeSvg.js'
+import Swal from 'sweetalert2' 
 
 const level1 = `<svg width="399" height="389" viewBox="0 0 399 389" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="bike">
@@ -1614,7 +1614,7 @@ const level2 = `<svg width="600" height="326" viewBox="0 0 600 326" fill="none" 
 </defs>
 </svg>
 `;
-const level3 = `<div class="starwars-demo" style="background-image: url(/icons/bg.jpg); width: 100vw; height: 100vh">
+const level3 = `<div class="starwars-demo" style="background-image: url(/icons/bg.jpg); display: flex; align-items: center; flex-direction: column; width: 100vw; height: 100vh">
 <object type="image/svg+xml" data="/icons/star.svg" class="star"></object>
 <object type="image/svg+xml" data="/icons/wars.svg" class="wars"></object>
 <h2 class="byline" id="byline">The Force Awakens</h2>
@@ -1633,6 +1633,74 @@ const level1css = `
   to{
 
   }
+}
+`;
+const level1answer = `
+// #right_wheel, #left_wheel{
+//   animation: wheel 4s ease infinite;
+//   transform-origin: center;
+//   transform-box: fill-box;
+// }
+// #man_on_bike{
+//   animation: bike 2s ease-in-out infinite alternate;
+//   transform-origin: bottom;
+// }
+// @keyframes wheel {
+//   from{
+//       transform: rotateZ(0deg);
+//   }
+//   to{
+//       transform: rotateZ(360deg);
+//   }
+// }
+// @keyframes bike{
+//   from{
+//       transform: rotateX(0deg);
+//   }
+//   to{
+//       transform: rotateX(15deg);
+//   }
+// }`;
+const level2answer = `
+#bus{ 
+  animation: forward 4s ease infinite;
+} 
+#plane{ 
+  animation: forward 2s ease-in-out infinite alternate; 
+  transform-origin: bottom; 
+} 
+@keyframes forward { 
+  from{ 
+      transform: translateX(-40%); 
+  } 
+  to{ 
+      transform: translateX(120%); 
+  } 
+} 
+`;
+const level3answer = `
+@keyframes star {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(-0.75em);
+  }
+  20% {
+    opacity: 1;
+  }
+  89% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+.star {
+  animation: star 10s ease-out infinite;
+}
+.wars {
+  animation: star 10s ease-out infinite;
 }
 `;
 const level2css = `
@@ -1660,15 +1728,16 @@ function App() {
   const [js, setJs] = useState('');
   const [srcDoc, setSrcDoc] = useState(``);
 
+
   const [openModal, setOpenModal] = useState(false);
  
-  const options = [{
-    id: 0, value: "Label 1"
+  const [options, setOptions] = useState([{
+    value: 0, label: "Level 1 of 15", isDisabled: false
 }, {
-    id: 1, value: "Label 2"
+    value: 1, label: "Level 2 of 15", isDisabled: true
 }, {
-    id: 2, value: "Label 3"
-}]
+    value: 2, label: "Level 3 of 15", isDisabled: true
+}]);
 
 
   const onTabClick = (editorName) => {
@@ -1676,11 +1745,11 @@ function App() {
   };
 
   const handleSelectorChange = (event) => {
-    
-    const newTarget = parseInt(event.target.value);
-
-    setSelector(newTarget);
-    changeCss(newTarget);
+    // console.log(event.target.value)
+    // const newTarget = parseInt(event.target.value);
+    console.log(event.value)
+    setSelector(event.value);
+    changeCss(event.value);
   }
 
   const nextArrowClicked = () => {
@@ -1726,7 +1795,98 @@ const prevArrowClicked = () => {
     )
   }
   const checkAnswer = () => {
-    console.log(css)
+    // if(css.replace(/\s/g,'').length === (level1answer.replace(/\s/g,'').length)) return alert(true)
+    // else alert(false)
+    const count1 = {}, count2 = {};
+    if(selector === 0){
+      level1answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 1){
+      level2answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 2){
+      level3answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+
+    css.replace(/\s/g,'').split('').forEach(char => {
+      count2[char] = count2[char] ? (count2[char] + 1) : 1;
+    });
+    
+    let keys = Object.keys(count1);
+    for(let i=0;i<keys.length;i++){
+      if(count1[keys[i]] === count2[keys[i]]) { 
+        // const openedOption = options.filter((item) => item.value === selector + 1).map((option) => {
+        //   console.log(option)
+        //   return {...options, option, isDisabled: !option.isDisabled};
+        // });
+        const openedOption = options.map((option) => {
+          if (option.value === selector + 1) return {...option, isDisabled: !option.isDisabled};
+          else return option;
+        });
+        setOptions(openedOption)
+        // setSelector(selector + 1)
+        console.log("??", selector)
+        console.log("options length ", options.length)
+        changeSelector(selector)
+        successAlert()
+      }  
+      else {
+        setOptions(options)
+        setSelector(selector)
+        errorAlert();
+      }
+    }
+  }
+
+  const changeSelector = (prevSelector) => {
+    setSelector(prevSelector===options.length-1 ? 0 : prevSelector+=1);
+    changeCss(prevSelector)
+  }
+
+  const errorAlert = () => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      background: "#FFEBE6",
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'error',
+      title: 'Oops, wrong answer. Try again!'
+    })
+  }
+
+  const successAlert = () => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      // background: "#FFEBE6",
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: `Good job! Let's go to the next level...`
+    })
   }
 
   const resetCode = () => {
@@ -1748,6 +1908,7 @@ const prevArrowClicked = () => {
       <div className='content'>
         <div>
           <TaskInfo selector={selector} handleSelectorChange={handleSelectorChange} prevArrowClicked={prevArrowClicked} nextArrowClicked={nextArrowClicked} options={options} runCode={runCode} setSelector={setSelector}/>
+          <div className='content-code-editor'>
           <div className="divider"></div>
           <div className="tab-button-container">
             <Button title="HTML" onClick={() => {
@@ -1788,14 +1949,15 @@ const prevArrowClicked = () => {
           </div>
           <div className='buttons'>
             <div>
-            <Button title='Reset code' onClick={resetCode} icon={<FontAwesomeIcon size="xl" pull="right" icon={faRotateRight} />}></Button>
+            <Button title='Reset code' onClick={resetCode} icon={<FontAwesomeIcon size="xl" icon={faRotateRight} />}></Button>
             </div>
             <div>
-            <Button title='Watch example' onClick={() => setOpenModal(true)} icon={<FontAwesomeIcon size="xl" pull="right" icon={faLightbulb} />}></Button>
+            <Button title='Watch example' onClick={() => setOpenModal(true)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button>
             </div>
             <div>
-            <Button title='Check answer' onClick={checkAnswer} icon={<FontAwesomeIcon size="xl" pull="right" icon={faCheck} />}></Button>
+            <Button title='Check answer' onClick={checkAnswer} icon={<FontAwesomeIcon size="xl" icon={faCheck} />}></Button>
             </div>
+          </div>
           </div>
         </div>
         <div className='resultCode'>

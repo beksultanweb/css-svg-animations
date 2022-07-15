@@ -1,19 +1,12 @@
 .task-info{
     margin-top: 60px;
-    width: 35vw;
+    width: 42vw;
     height: 25vh;
-    overflow: hidden;
-    padding-left: 10px;
-    padding-right: 10px;
-    position: relative;
-}
-.task-scroll{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: -17px;
-    overflow-y: scroll;       
+    /* overflow: hidden; */
+    overflow: auto;
+    /* padding-left: 10px; */
+    padding-right: 15px;
+    /* position: relative; */
 }
 .level-btns, .level-dropdown{
     display: flex;

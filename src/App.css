@@ -16,7 +16,14 @@
 
 body {
   background-color: #007A78;
-  padding: 5rem;
+  padding-top: 3rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+.content-code-editor{
+  background-color: #007A78;
+  width: 43vw;
+  position: fixed;
 }
 .tab-button-container{
   display: flex;
