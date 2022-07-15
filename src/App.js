@@ -1614,11 +1614,28 @@ const level2 = `<svg width="600" height="326" viewBox="0 0 600 326" fill="none" 
 </defs>
 </svg>
 `;
-const level3 = `<div class="starwars-demo" style="background-image: url(/icons/bg.jpg); display: flex; align-items: center; flex-direction: column; width: 100vw; height: 100vh">
-<object type="image/svg+xml" data="/icons/star.svg" class="star"></object>
-<object type="image/svg+xml" data="/icons/wars.svg" class="wars"></object>
-<h2 class="byline" id="byline">The Force Awakens</h2>
-</div>`;
+const level3 = `<div style="background-image: url(/icons/bg.jpg); width: 100vw; height: 100vh; overflow: hidden;"><div class="starwars-demo" style="
+height: 17em;
+perspective: 800px;
+  transform-style: preserve3d;
+left: 50%;
+position: absolute;
+top: 50%;
+width: 24em;
+transform: translate(-50%, -50%);">
+<object type="image/svg+xml" data="/icons/star.svg" class="star" style="position: absolute; top: -0.75em;"></object>
+<object type="image/svg+xml" data="/icons/wars.svg" class="wars" style="position: absolute; bottom: -0.5em;"></object>
+<h2 class="byline" id="byline" style="color: #fff;
+font-family: "ITC Serif Gothic", Lato;
+font-size: 2.25em;
+display: inline-block;
+position: absolute;
+left: -2em;
+letter-spacing: 0.4em;
+right: -2em;
+text-align: center;
+top: 69%;">THE FORCE AWAKENS</h2>
+</div></div>`;
 const level1css = `
 #right_wheel, #left_wheel{
   //code there
@@ -1679,6 +1696,20 @@ const level2answer = `
 } 
 `;
 const level3answer = `
+.star {
+  animation: star 10s ease-out infinite;
+}
+.wars {
+  animation: wars 10s ease-out infinite;
+}
+.byline span {
+  animation: spin-letters 10s linear infinite;
+}
+.byline {
+  animation: move-byline 10s linear infinite;
+}
+
+/* Keyframes */
 @keyframes star {
   0% {
     opacity: 0;
@@ -1696,11 +1727,49 @@ const level3answer = `
     transform: translateZ(-1000em);
   }
 }
-.star {
-  animation: star 10s ease-out infinite;
+
+@keyframes wars {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(0.5em);
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
 }
-.wars {
-  animation: star 10s ease-out infinite;
+
+@keyframes spin-letters {
+  0%, 10% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  30% {
+    opacity: 1;
+  }
+  70%, 86% {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes move-byline {
+  0% {
+    transform: translateZ(5em);
+  }
+  100% {
+    transform: translateZ(0);
+  }
 }
 `;
 const level2css = `
