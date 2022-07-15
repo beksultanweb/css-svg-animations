@@ -1623,18 +1623,17 @@ position: absolute;
 top: 50%;
 width: 24em;
 transform: translate(-50%, -50%);">
-<object type="image/svg+xml" data="/icons/star.svg" class="star" style="position: absolute; top: -0.75em;"></object>
-<object type="image/svg+xml" data="/icons/wars.svg" class="wars" style="position: absolute; bottom: -0.5em;"></object>
+<object type="image/svg+xml" data="/icons/star.svg" class="star" style="position: absolute; top: -0.2em;"></object>
+<object type="image/svg+xml" data="/icons/wars.svg" class="wars" style="position: absolute; bottom: -0.2em;"></object>
 <h2 class="byline" id="byline" style="color: #fff;
-font-family: "ITC Serif Gothic", Lato;
-font-size: 2.25em;
+font-size: 1.5em;
 display: inline-block;
 position: absolute;
 left: -2em;
 letter-spacing: 0.4em;
 right: -2em;
 text-align: center;
-top: 69%;">THE FORCE AWAKENS</h2>
+top: 35%;">THE FORCE AWAKENS</h2>
 </div></div>`;
 const level1css = `
 #right_wheel, #left_wheel{
@@ -1702,12 +1701,10 @@ const level3answer = `
 .wars {
   animation: wars 10s ease-out infinite;
 }
-.byline span {
+.byline {
   animation: spin-letters 10s linear infinite;
 }
-.byline {
-  animation: move-byline 10s linear infinite;
-}
+
 
 /* Keyframes */
 @keyframes star {
