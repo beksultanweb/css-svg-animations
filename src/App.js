@@ -1821,25 +1821,31 @@ function App() {
   const nextArrowClicked = () => {
 
     // console.log("selector",selector)
+    let filtererdOptions = options.filter((item) => item.isDisabled === false)
     setSelector((prevSelector) => {
-      if(prevSelector===options.length-1){
+      if(prevSelector===filtererdOptions.length-1){
         return 0;
       }else return prevSelector+=1;
     });
     console.log("selector: ",selector);
-    setCss(selector===0?level2css.trim():selector===1?level1css.trim():level1css.trim())
+    if(filtererdOptions.length > 1){
+      setCss(selector===0?level2css.trim():selector===1?level1css.trim():level1css.trim())
+    }
 };
 
 const prevArrowClicked = () => {
 
     // console.log("selector",selector)
+    let filtererdOptions = options.filter((item) => item.isDisabled === false)
     setSelector((prevSelector) => {
       if(prevSelector===0){
-        return options.length-1;
+        return filtererdOptions.length-1;
       }else return prevSelector-=1;
     });
     console.log("selector: ",selector);
-    setCss(selector===0?level1css.trim():selector===2?level2css.trim():level1css.trim())
+    if(filtererdOptions.length > 1){
+      setCss(selector===0?level2css.trim():selector===2?level1css.trim():level1css.trim())
+    }
 };
 
   const runCode = () => {
@@ -1865,16 +1871,19 @@ const prevArrowClicked = () => {
     // else alert(false)
     const count1 = {}, count2 = {};
     if(selector === 0){
+      console.log("Level 1")
       level1answer.replace(/\s/g,'').split('').forEach(char => {
         count1[char] = count1[char] ? (count1[char] + 1) : 1;
       });
     }
     if(selector === 1){
+      console.log("Level 2")
       level2answer.replace(/\s/g,'').split('').forEach(char => {
         count1[char] = count1[char] ? (count1[char] + 1) : 1;
       });
     }
     if(selector === 2){
+      console.log("Level 3")
       level3answer.replace(/\s/g,'').split('').forEach(char => {
         count1[char] = count1[char] ? (count1[char] + 1) : 1;
       });
@@ -1884,36 +1893,41 @@ const prevArrowClicked = () => {
       count2[char] = count2[char] ? (count2[char] + 1) : 1;
     });
     
+    console.log(count1, count2)
+
     let keys = Object.keys(count1);
     for(let i=0;i<keys.length;i++){
-      if(count1[keys[i]] === count2[keys[i]]) { 
+      if(count1[keys[i]] !== count2[keys[i]]) { 
         // const openedOption = options.filter((item) => item.value === selector + 1).map((option) => {
         //   console.log(option)
         //   return {...options, option, isDisabled: !option.isDisabled};
         // });
+        
+        // setSelector(selector + 1)
+        // changeSelector(selector)
+        errorAlert();
+        return false;
+      }  
+      else {
+        successAlert()
         const openedOption = options.map((option) => {
           if (option.value === selector + 1) return {...option, isDisabled: !option.isDisabled};
           else return option;
         });
         setOptions(openedOption)
-        // setSelector(selector + 1)
-        console.log("??", selector)
-        console.log("options length ", options.length)
-        changeSelector(selector)
-        successAlert()
-      }  
-      else {
-        setOptions(options)
-        setSelector(selector)
-        errorAlert();
+
+        // setOptions(options)
+        setSelector(selector + 1)
+        changeCss(selector + 1)
+        return true;
       }
     }
   }
 
-  const changeSelector = (prevSelector) => {
-    setSelector(prevSelector===options.length-1 ? 0 : prevSelector+=1);
-    changeCss(prevSelector)
-  }
+  // const changeSelector = (prevSelector) => {
+  //   setSelector(prevSelector===options.length-1 ? 0 : prevSelector+=1);
+  //   changeCss(prevSelector)
+  // }
 
   const errorAlert = () => {
     const Toast = Swal.mixin({
