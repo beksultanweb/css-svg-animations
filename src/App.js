@@ -1652,31 +1652,31 @@ const level1css = `
 }
 `;
 const level1answer = `
-// #right_wheel, #left_wheel{
-//   animation: wheel 4s ease infinite;
-//   transform-origin: center;
-//   transform-box: fill-box;
-// }
-// #man_on_bike{
-//   animation: bike 2s ease-in-out infinite alternate;
-//   transform-origin: bottom;
-// }
-// @keyframes wheel {
-//   from{
-//       transform: rotateZ(0deg);
-//   }
-//   to{
-//       transform: rotateZ(360deg);
-//   }
-// }
-// @keyframes bike{
-//   from{
-//       transform: rotateX(0deg);
-//   }
-//   to{
-//       transform: rotateX(15deg);
-//   }
-// }`;
+#right_wheel, #left_wheel{
+  animation: wheel 4s ease infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+#man_on_bike{
+  animation: bike 2s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+@keyframes wheel {
+  from{
+      transform: rotateZ(0deg);
+  }
+  to{
+      transform: rotateZ(360deg);
+  }
+}
+@keyframes bike{
+  from{
+      transform: rotateX(0deg);
+  }
+  to{
+      transform: rotateX(15deg);
+  }
+}`;
 const level2answer = `
 #bus{ 
   animation: forward 4s ease infinite;
@@ -1905,23 +1905,25 @@ const prevArrowClicked = () => {
         
         // setSelector(selector + 1)
         // changeSelector(selector)
+        console.log('bro')
         errorAlert();
         return false;
       }  
       else {
-        successAlert()
-        const openedOption = options.map((option) => {
-          if (option.value === selector + 1) return {...option, isDisabled: !option.isDisabled};
-          else return option;
-        });
-        setOptions(openedOption)
-
-        // setOptions(options)
-        setSelector(selector + 1)
-        changeCss(selector + 1)
-        return true;
+       
       }
     }
+    successAlert()
+    const openedOption = options.map((option) => {
+      if (option.value === selector + 1) return {...option, isDisabled: !option.isDisabled};
+      else return option;
+    });
+    setOptions(openedOption)
+
+    // setOptions(options)
+    setSelector(selector + 1)
+    changeCss(selector + 1)
+    return true;
   }
 
   // const changeSelector = (prevSelector) => {
