@@ -8,22 +8,32 @@
 .content{
   /* padding-left: 20px; */
   /* padding-right: 20px; */
-  
+  min-height: 100vh;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
 }
-
+.spanish{
+  background-color: #FFC745; 
+  color: black; 
+  border-radius: 5px; 
+  padding: 0 5px 0 5px;
+}
 body {
+  /* overflow: scroll; */
   background-color: #007A78;
   padding-top: 3rem;
   padding-left: 5rem;
   padding-right: 5rem;
+  min-height: 100vh;
 }
 .content-code-editor{
   background-color: #007A78;
   width: 43vw;
   position: fixed;
+  z-index: 999;
+  bottom: 10px;
 }
 .tab-button-container{
   display: flex;
@@ -37,6 +47,7 @@ body {
 .buttons{
   margin-top: 10px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   
 }
@@ -44,4 +55,30 @@ body {
   height: 2px;
   background-color: #fff;
   width: 100%;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1000px){
+  .content{
+    /* flex-direction: column; */
+    height: 200vh;
+  }
+  .divider{
+    margin-top: 20px;
+  }
+  .content-code-editor{
+    width: 100%;
+    position:inherit;
+  }
+}
+@media (max-width: 600px){
+  .content-code-editor{
+    width: 100%;
+  }
+}
+@media (max-width: 500px){
+  body{
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
 }

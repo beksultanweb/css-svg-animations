@@ -1,12 +1,6 @@
 .task-info{
-    margin-top: 60px;
+    padding-top: 60px;
     width: 42vw;
-    height: 25vh;
-    /* overflow: hidden; */
-    overflow: auto;
-    /* padding-left: 10px; */
-    padding-right: 15px;
-    /* position: relative; */
 }
 .level-btns, .level-dropdown{
     display: flex;
@@ -21,8 +15,15 @@
     padding-left: 5px;
     /* padding-right: 5px; */
 }
+.showme{
+    color: aqua;
+}
+.showme:hover{
+    text-decoration: underline;
+}
 .task-header{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -46,3 +47,24 @@
     border-left: 10px solid #FFC745;
     border-bottom: 10px solid transparent;
   }
+.level1{
+    height: 110vh;
+}
+@media (max-width: 1300px){
+    .level1{
+        height: 140vh;
+    }
+}
+@media (max-width: 1000px){
+    .level1{
+        height: 100%;
+    }
+    .task-info{
+        width: 100%;
+      }
+}
+@media (max-width: 600px){
+    .task-info{
+        width: 100%;
+    }
+}

@@ -9,14 +9,27 @@
     background-color: #004746;
     border-bottom: 5px dashed #FFC745;
 }
-.logo{
+.logoTxt{
+    
+    height: 40px;
+    /* width: 100%; */
+    display: flex;
+    align-items:center;
+    /* flex-direction: row; */
+}
+.txt{
     font-family: 'Press Start 2P', cursive;
     color: #fff;
 }
+.logo{
+    width: 40%;
+    height: 100%;
+}
+
 .header-row{
     position: relative;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
     top: 0;
     left: 0;
     display: flex;
@@ -62,3 +75,18 @@ button:active {
 	position: relative;
 	top: .2em;
 } */
+@media (max-width: 633px){
+    .header-wrapper{
+        width: 100%;
+    }
+    .logoTxt{
+        width: 50%;
+    }
+    .txt{
+        display:none;
+    }
+    .header-row{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

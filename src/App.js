@@ -13,7 +13,355 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotateRight, faLightbulb, faCheck } from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2' 
 
-const level1 = `<svg width="399" height="389" viewBox="0 0 399 389" fill="none" xmlns="http://www.w3.org/2000/svg">
+const level1 = `
+<h1>CSS Animation</h1>
+<div></div>
+<p><b>Note:</b> When an animation is finished, it goes back to its original style.</p>`;
+const level1css = `
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+}
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}`
+const level1answer = `
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+}
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}`
+const level2 = `
+<h1>CSS Animation</h1>
+<div></div>
+<p><b>Note:</b> When an animation is finished, it goes back to its original style.</p>
+`;
+const level2css = `
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+}
+@keyframes example {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}`;
+const level2answer = `
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+}
+@keyframes example {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}`;
+const level3 = `
+<h1>CSS Animation</h1>
+<div></div>
+<p><b>Note:</b> When an animation is finished, it goes back to its original style.</p>
+`;
+const level3css = `
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+}
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}`;
+const level3answer = `
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+}
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}`;
+const level4 = `
+<h1>CSS Animation</h1>
+
+<p>The animation-delay property specifies a delay for the start of an animation. The following example has a 2 seconds delay before starting the animation:</p>
+
+<div></div>`;
+const level4css = `
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+`;
+const level4answer = `
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}`;
+const level5 = `
+<h1>CSS Animation</h1>
+
+<p>The animation-iteration-count property specifies the number of times an animation should run. The following example will run the animation 3 times or infinitely before it stops:</p>
+<div></div>`;
+const level5css = `
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: 3;
+}
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}`;
+const level5answer = `
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: 3;
+}
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+`;
+const level6 = `
+<h1>CSS Animation</h1>
+
+<p>The animation-direction property specifies whether an animation should be played forwards, backwards or in alternate cycles. The following example will run the animation in reverse direction (backwards) or "alternate" to make the animation run forwards first, then backwards or "alternate-reverse" to make the animation run backwards first, then forwards:</p>
+<div></div>
+`;
+const level6css = `
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-direction: reverse;
+}
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+`;
+const level6answer = `
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-direction: reverse;
+}
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}`;
+const level7 = `
+<h1>CSS Animation</h1>
+
+<p>The animation-timing-function property specifies the speed curve of the animation. The following example shows some of the different speed curves that can be used:</p>
+
+<div id="div1">linear</div>
+<div id="div2">ease</div>
+<div id="div3">ease-in</div>
+<div id="div4">ease-out</div>
+<div id="div5">ease-in-out</div>
+`;
+const level7css = `
+div {
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  font-weight: bold;
+  position: relative;
+  animation: mymove 5s infinite;
+}
+
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+#div4 {animation-timing-function: ease-out;}
+#div5 {animation-timing-function: ease-in-out;}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 300px;}
+}`;
+const level7answer = `
+div {
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  font-weight: bold;
+  position: relative;
+  animation: mymove 5s infinite;
+}
+
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+#div4 {animation-timing-function: ease-out;}
+#div5 {animation-timing-function: ease-in-out;}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 300px;}
+}
+`;
+const level8 = `
+<h1>CSS Animation</h1>
+
+<p>Let the div element retain the style values set by the last keyframe when the animation ends:</p>
+
+<div></div>
+`;
+const level8css = `
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes example {
+  from {top: 0px;}
+  to {top: 200px; background-color: blue;}
+}
+`;
+const level8answer = `
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes example {
+  from {top: 0px;}
+  to {top: 200px; background-color: blue;}
+}
+`;
+const level9 =`
+<svg width="152" height="112" viewBox="0 0 152 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="green" opacity="0.8" d="M97 47.3397C103.667 51.1887 103.667 60.8113 97 64.6603L43 95.8372C36.3333 99.6862 28 94.8749 28 87.1769L28 24.8231C28 17.1251 36.3333 12.3138 43 16.1628L97 47.3397Z" fill="#1AB7C1"/>
+<path id="blue" opacity="0.8" d="M137 47.3397C143.667 51.1887 143.667 60.8113 137 64.6603L83 95.8372C76.3333 99.6862 68 94.8749 68 87.1769L68 24.8231C68 17.1251 76.3333 12.3138 83 16.1628L137 47.3397Z" fill="#5C81CA"/>
+<path id="blue2" opacity="0.8" d="M137 47.3397C143.667 51.1887 143.667 60.8113 137 64.6603L83 95.8372C76.3333 99.6862 68 94.8749 68 87.1769L68 24.8231C68 17.1251 76.3333 12.3138 83 16.1628L137 47.3397Z" fill="#5C81CA"/>
+</svg>
+`;
+const level9css = `
+#blue2{
+  transition: all 1s ease;
+  transform: translateX(-100%);
+}
+svg:hover #green{
+  transform: translateX(20%)
+}
+svg:hover #blue{
+  transform: translateX(40%)
+  opacity: 0;
+}
+svg:hover #blue2{
+  transform: translateX(0%)
+}`;
+const level9answer =`
+#blue2{
+  transition: all 1s ease;
+  transform: translateX(-100%);
+}
+svg:hover #green{
+  transform: translateX(20%)
+}
+svg:hover #blue{
+  transform: translateX(40%)
+  opacity: 0;
+}
+svg:hover #blue2{
+  transform: translateX(0%)
+}`;
+const level10 = `<svg width="399" height="389" viewBox="0 0 399 389" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="bike">
 <g id="right_wheel">
 <path id="Vector" d="M280.107 281.544L278.618 283.617L325.451 317.337L326.939 315.264L280.107 281.544Z" fill="#5E5E5E"/>
@@ -108,7 +456,7 @@ const level1 = `<svg width="399" height="389" viewBox="0 0 399 389" fill="none" 
 </g>
 </svg>
 `;
-const level2 = `<svg width="600" height="326" viewBox="0 0 600 326" fill="none" xmlns="http://www.w3.org/2000/svg">
+const level11 = `<svg width="600" height="326" viewBox="0 0 600 326" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="airport" clip-path="url(#clip0_15_1179)">
 <g id="Layer 1">
 <g id="Group">
@@ -1614,7 +1962,7 @@ const level2 = `<svg width="600" height="326" viewBox="0 0 600 326" fill="none" 
 </defs>
 </svg>
 `;
-const level3 = `<div style="background-image: url(/icons/bg.jpg); width: 100vw; height: 100vh; overflow: hidden;"><div class="starwars-demo" style="
+const level12 = `<div style="background-image: url(/icons/bg.jpg); width: 100vw; height: 100vh; overflow: hidden;"><div class="starwars-demo" style="
 height: 17em;
 perspective: 800px;
   transform-style: preserve3d;
@@ -1635,7 +1983,7 @@ right: -2em;
 text-align: center;
 top: 35%;">THE FORCE AWAKENS</h2>
 </div></div>`;
-const level1css = `
+const level10css = `
 #right_wheel, #left_wheel{
   //code there
 }
@@ -1651,7 +1999,7 @@ const level1css = `
   }
 }
 `;
-const level1answer = `
+const level10answer = `
 #right_wheel, #left_wheel{
   animation: wheel 4s ease infinite;
   transform-origin: center;
@@ -1677,7 +2025,7 @@ const level1answer = `
       transform: rotateX(15deg);
   }
 }`;
-const level2answer = `
+const level11answer = `
 #bus{ 
   animation: forward 4s ease infinite;
 } 
@@ -1694,7 +2042,81 @@ const level2answer = `
   } 
 } 
 `;
-const level3answer = `
+const level12css = `
+.star {
+  animation: star 10s ease-out infinite;
+}
+.wars {
+  animation: wars 10s ease-out infinite;
+}
+.byline {
+  animation: spin-letters 10s linear infinite;
+}
+
+
+/* Keyframes */
+@keyframes star {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(-0.75em);
+  }
+  20% {
+    opacity: 1;
+  }
+  89% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+
+@keyframes wars {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(0.5em);
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+
+@keyframes spin-letters {
+  0%, 10% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  30% {
+    opacity: 1;
+  }
+  70%, 86% {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes move-byline {
+  0% {
+    transform: translateZ(5em);
+  }
+  100% {
+    transform: translateZ(0);
+  }
+}`;
+const level12answer = `
 .star {
   animation: star 10s ease-out infinite;
 }
@@ -1769,7 +2191,7 @@ const level3answer = `
   }
 }
 `;
-const level2css = `
+const level11css = `
 #bus{
 
 }
@@ -1785,30 +2207,98 @@ const level2css = `
   }
 }
 `;
+const level13 = `
+<svg width: "200" height="200">
+<rect>
+  <animate attributeType="CSS" attributeName="opacity" 
+           from="1" to="0" dur="5s" repeatCount="indefinite" />
+</rect>
+</svg>
+`;
+const level13css = ``;
+const level13answer = ``;
+const level14 = `
+<svg width="500" height="100">
+  <circle id="orange-circle" r="30" cx="50" cy="50" fill="orange" />
+  
+  <animate 
+           xlink:href="#orange-circle"
+           attributeName="cx"
+           from="50"
+           to="450" 
+           dur="1s"
+           begin="click"
+           fill="freeze" />
+</svg>`;
+const level14css =``;
+const level14answer = ``;
+const level15 = `<svg width="500" height="350">
+<circle id="orange-circle" r="30" cx="50" cy="50" fill="orange" />
+<rect id="blue-rectangle" width="50" height="50" x="25" y="200" fill="#0099cc"></rect>
+
+<animate 
+         xlink:href="#orange-circle"
+         attributeName="cx"
+         from="50"
+         to="450" 
+         dur="5s"
+         begin="click"
+         fill="freeze" 
+         id="circAnim"/>
+
+<animate 
+         xlink:href="#blue-rectangle"
+         attributeName="x" 
+         from="50"
+         to="425" 
+         dur="5s"
+         begin="circAnim.begin + 1s"
+         fill="freeze" 
+         id="rectAnim"/>
+
+</svg>
+<p>Кликните по кругу, чтобы анимировать его, а следом за ним и прямоугольник.</p>`;
+const level15css = `svg {
+  border: 3px solid #eee;
+  display: block;
+  margin: 1em auto;
+}
+p {
+  color: #aaa;
+  text-align: center;
+  margin: 2em 0;
+}`
+const level15answer =``;
 
 function App() {
   const [selector, setSelector] = useState(0);
-  const [openedEditor, setOpenedEditor] = useState('css');
-  const [html, setHtml] = useState('');
+  // const [html, setHtml] = useState('');
   const [css, setCss] = useState(level1css.trim());
-  const [js, setJs] = useState('');
   const [srcDoc, setSrcDoc] = useState(``);
 
 
   const [openModal, setOpenModal] = useState(false);
  
-  const [options, setOptions] = useState([{
-    value: 0, label: "Level 1 of 15", isDisabled: false
-}, {
-    value: 1, label: "Level 2 of 15", isDisabled: true
-}, {
-    value: 2, label: "Level 3 of 15", isDisabled: true
-}]);
+  const [options, setOptions] = useState([
+    {value: 0, label: "Level 1 of 15", isDisabled: false}, 
+    {value: 1, label: "Level 2 of 15", isDisabled: true}, 
+    {value: 2, label: "Level 3 of 15", isDisabled: true},
+    {value: 3, label: "Level 4 of 15", isDisabled: true},
+    {value: 4, label: "Level 5 of 15", isDisabled: true},
+    {value: 5, label: "Level 6 of 15", isDisabled: true},
+    {value: 6, label: "Level 7 of 15", isDisabled: true},
+    {value: 7, label: "Level 8 of 15", isDisabled: true},
+    {value: 8, label: "Level 9 of 15", isDisabled: true},
+    {value: 9, label: "Level 10 of 15", isDisabled: true},
+    {value: 10, label: "Level 11 of 15", isDisabled: true},
+    {value: 11, label: "Level 12 of 15", isDisabled: true},
+    {value: 12, label: "Level 13 of 15", isDisabled: true},
+    {value: 13, label: "Level 14 of 15", isDisabled: true},
+    {value: 14, label: "Level 15 of 15", isDisabled: true}
+  ]);
 
 
-  const onTabClick = (editorName) => {
-    setOpenedEditor(editorName);
-  };
+  
 
   const handleSelectorChange = (event) => {
     // console.log(event.target.value)
@@ -1827,8 +2317,9 @@ function App() {
         return 0;
       }else return prevSelector+=1;
     });
-    console.log("selector: ",selector);
+    // console.log("selector: ",selector);
     if(filtererdOptions.length > 1){
+      //Here
       setCss(selector===0?level2css.trim():selector===1?level1css.trim():level1css.trim())
     }
 };
@@ -1844,6 +2335,7 @@ const prevArrowClicked = () => {
     });
     console.log("selector: ",selector);
     if(filtererdOptions.length > 1){
+      // Here
       setCss(selector===0?level2css.trim():selector===2?level1css.trim():level1css.trim())
     }
 };
@@ -1852,17 +2344,28 @@ const prevArrowClicked = () => {
     const getLevelCode = () => {
       if (selector === 0) return level1;
       if (selector === 1) return level2;
-      return level3;
+      if (selector === 2) return level3;
+      if (selector === 3) return level4;
+      if (selector === 4) return level5;
+      if (selector === 5) return level6;
+      if (selector === 6) return level7;
+      if (selector === 7) return level8;
+      if (selector === 8) return level9;
+      if (selector === 9) return level10;
+      if (selector === 10) return level11;
+      if (selector === 11) return level12;
+      if (selector === 12) return level13;
+      if (selector === 13) return level14;
+      return level15;
     }
     setSrcDoc(
       `<html>
-            <style>body{
-              margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh;
-            }${css}</style>
+            <style>
+            // body{ margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh;}
+            ${css}</style>
             <body>
             ${getLevelCode()}
             </body>
-            <script>${js}</script>
           </html>`
     )
   }
@@ -1883,12 +2386,70 @@ const prevArrowClicked = () => {
       });
     }
     if(selector === 2){
-      console.log("Level 3")
       level3answer.replace(/\s/g,'').split('').forEach(char => {
         count1[char] = count1[char] ? (count1[char] + 1) : 1;
       });
     }
-
+    if(selector === 3){
+      level4answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 4){
+      level5answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 5){
+      level6answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 6){
+      level7answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 7){
+      level8answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 8){
+      level9answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 9){
+      level10answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 10){
+      level11answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 11){
+      level12answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 12){
+      level13answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 13){
+      level14answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
+    if(selector === 14){
+      level15answer.replace(/\s/g,'').split('').forEach(char => {
+        count1[char] = count1[char] ? (count1[char] + 1) : 1;
+      });
+    }
     css.replace(/\s/g,'').split('').forEach(char => {
       count2[char] = count2[char] ? (count2[char] + 1) : 1;
     });
@@ -1920,7 +2481,7 @@ const prevArrowClicked = () => {
     });
     setOptions(openedOption)
 
-    // setOptions(options)
+    setShowAnswer(false)
     setSelector(selector + 1)
     changeCss(selector + 1)
     return true;
@@ -1972,69 +2533,59 @@ const prevArrowClicked = () => {
   }
 
   const resetCode = () => {
-    // console.log(selector);
-    setCss(selector===0?level1css.trim():selector===1?level2css.trim():level1css.trim());
+    // setHtml(selector===0?level1.trim():selector===1?level2.trim():selector===2?level3.trim():selector===3?level4.trim():selector===4?level5.trim():selector===5?level6.trim():selector===6?level7.trim():selector===7?level8.trim():selector===8?level9.trim():selector===9?level10.trim():selector===10?level11.trim():selector===11?level12.trim():selector===12?level13.trim():selector===13?level14.trim():selector===14?level15.trim():level1.trim());
+    setCss(selector===0?level1css.trim():selector===1?level2css.trim():selector===2?level3css.trim():selector===3?level4css.trim():selector===4?level5css.trim():selector===5?level6css.trim():selector===6?level7css.trim():selector===7?level8css.trim():selector===8?level9css.trim():selector===9?level10css.trim():selector===10?level11css.trim():selector===11?level12css.trim():selector===12?level13css.trim():selector===13?level14css.trim():selector===14?level15css.trim():level1css.trim());
   }
 
   const changeCss = (prevSelectorValue) => {
-    setCss(prevSelectorValue===0?level1css.trim():prevSelectorValue===1?level2css.trim():level1css.trim());
+    // setHtml(prevSelectorValue===0?level1.trim():prevSelectorValue===1?level2.trim():prevSelectorValue===2?level3.trim():prevSelectorValue===3?level4.trim():prevSelectorValue===4?level5.trim():prevSelectorValue===5?level6.trim():prevSelectorValue===6?level7.trim():prevSelectorValue===7?level8.trim():prevSelectorValue===8?level9.trim():prevSelectorValue===9?level10.trim():prevSelectorValue===10?level11.trim():prevSelectorValue===11?level12.trim():prevSelectorValue===12?level13.trim():prevSelectorValue===13?level14.trim():prevSelectorValue===14?level15.trim():level1.trim());
+    setCss(prevSelectorValue===0?level1css.trim():prevSelectorValue===1?level2css.trim():prevSelectorValue===2?level3css.trim():prevSelectorValue===3?level4css.trim():prevSelectorValue===4?level5css.trim():prevSelectorValue===5?level6css.trim():prevSelectorValue===6?level7css.trim():prevSelectorValue===7?level8css.trim():prevSelectorValue===8?level9css.trim():prevSelectorValue===9?level10css.trim():prevSelectorValue===10?level11css.trim():prevSelectorValue===11?level12css.trim():prevSelectorValue===12?level13css.trim():prevSelectorValue===13?level14css.trim():prevSelectorValue===14?level15css.trim():level1css.trim());
+    // setCss(prevSelectorValue===0?level1css.trim():prevSelectorValue===1?level2css.trim():level1css.trim());
   }
 
   useEffect(() => {
     runCode();
-  }, [])
+  })
+
+  const [showAnswer, setShowAnswer] = useState(false)
+  const handleShowAnswer = () =>{
+      setShowAnswer(!showAnswer)
+  }
 
   return (
     <div>
       <Header />
       <div className='content'>
         <div>
-          <TaskInfo selector={selector} handleSelectorChange={handleSelectorChange} prevArrowClicked={prevArrowClicked} nextArrowClicked={nextArrowClicked} options={options} runCode={runCode} setSelector={setSelector}/>
+          <TaskInfo selector={selector} showAnswer={showAnswer} handleShowAnswer={handleShowAnswer} handleSelectorChange={handleSelectorChange} prevArrowClicked={prevArrowClicked} nextArrowClicked={nextArrowClicked} options={options} runCode={runCode} setSelector={setSelector}/>
           <div className='content-code-editor'>
           <div className="divider"></div>
-          <div className="tab-button-container">
+          {/* <div className="tab-button-container">
             <Button title="HTML" onClick={() => {
               onTabClick('html')
             }} />
             <Button title="CSS" onClick={() => {
               onTabClick('css')
             }} />
-            <Button title="JavaScript" onClick={() => {
-              onTabClick('js')
-            }} />
-          </div>
+          </div> */}
           <div className="editor-container">
             {
-              openedEditor === 'html' ? (
-                <Editor
-                  language="xml"
-                  displayName="HTML"
-                  value={html}
-                  setEditorState={setHtml}
-                />
-              ) : openedEditor === 'css' ? (
+              
                 <Editor
                   language="css"
                   displayName="CSS"
                   value={css}
                   setEditorState={setCss}
                 />
-              ) : (
-                <Editor
-                  language="javascript"
-                  displayName="JS"
-                  value={js}
-                  setEditorState={setJs}
-                />
-              )
+              
             }
           </div>
           <div className='buttons'>
             <div>
-            <Button title='Reset code' onClick={resetCode} icon={<FontAwesomeIcon size="xl" icon={faRotateRight} />}></Button>
+            <Button title='Reset' onClick={resetCode} icon={<FontAwesomeIcon size="xl" icon={faRotateRight} />}></Button>
             </div>
             <div>
-            <Button title='Watch example' onClick={() => setOpenModal(true)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button>
+            <Button title='Example' onClick={() => setOpenModal(true)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button>
             </div>
             <div>
             <Button title='Check answer' onClick={checkAnswer} icon={<FontAwesomeIcon size="xl" icon={faCheck} />}></Button>

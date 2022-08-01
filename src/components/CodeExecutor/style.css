@@ -1,7 +1,21 @@
 iframe {
     width: 40vw;
     height: 70vh;
-    border: 5px dashed #FFC745;
+    border: 5px solid #FFC745;
     overflow: hidden;
     margin: 0;
+    position: fixed;
+    top: 10;
+    right: 40px;
   }
+@media(max-width: 1000px){
+  iframe{
+    position:static;
+    width: 70vw;
+  }
+}
+@media(max-width: 554px){
+  iframe{
+    width: 100%;
+  }
+}

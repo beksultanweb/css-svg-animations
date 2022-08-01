@@ -8,7 +8,6 @@ const MyEditor = () => {
 
   const [html, setHtml] = useState('');
   const [css, setCss] = useState('');
-  const [js, setJs] = useState('');
   
 
 
@@ -42,9 +41,6 @@ const MyEditor = () => {
         <Button title="CSS" onClick={() => {
           onTabClick('css')
         }} />
-        <Button title="JavaScript" onClick={() => {
-          onTabClick('js')
-        }} />
       </div>
       <div className="editor-container">
         {
@@ -62,14 +58,7 @@ const MyEditor = () => {
               value={css}
               setEditorState={setCss}
             />
-          ) : (
-            <Editor
-              language="javascript"
-              displayName="JS"
-              value={js}
-              setEditorState={setJs}
-            />
-          )
+          ) : ""
         }
         
       </div>
