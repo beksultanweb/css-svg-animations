@@ -2958,9 +2958,13 @@ function App() {
     });
     // console.log("selector: ",selector);
     if(filtererdOptions.length > 1){
-      //Here
-      setCss(selector===0?level2css.trim():selector===1?level1css.trim():level1css.trim())
+      changeCss(selector + 1)
+      if(selector === filtererdOptions.length - 1) { changeCss(0)}
     }
+       
+        
+      // setCss(selector===0?level2css.trim():selector===1?level1css.trim():level1css.trim())
+    
 };
 
 const prevArrowClicked = () => {
@@ -2974,9 +2978,12 @@ const prevArrowClicked = () => {
     });
     console.log("selector: ",selector);
     if(filtererdOptions.length > 1){
-      // Here
-      setCss(selector===0?level2css.trim():selector===2?level1css.trim():level1css.trim())
-    }
+        changeCss(selector - 1)
+        if(selector === 0) { changeCss(filtererdOptions.length-1)}
+      }
+      
+      // setCss(selector===0?level2css.trim():selector===2?level1css.trim():level1css.trim())
+    
 };
 
   const runCode = () => {
@@ -2997,11 +3004,28 @@ const prevArrowClicked = () => {
       if (selector === 13) return level14;
       return level15;
     }
+    const getCssCode = () => {
+      if (selector === 0) return level1css;
+      if (selector === 1) return level2css;
+      if (selector === 2) return level3css;
+      if (selector === 3) return level4css;
+      if (selector === 4) return level5css;
+      if (selector === 5) return level6css;
+      if (selector === 6) return level7css;
+      if (selector === 7) return level8css;
+      if (selector === 8) return level9css;
+      if (selector === 9) return level10css;
+      if (selector === 10) return level11css;
+      if (selector === 11) return level12css;
+      if (selector === 12) return level13css;
+      if (selector === 13) return level14css;
+      return level15;
+    }
     setSrcDoc(
       `<html>
             <style>h1, p{color: white}
             // body{ margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh;}
-            ${css}</style>
+            ${getCssCode()}</style>
             <body>
             ${getLevelCode()}
             </body>
@@ -3115,7 +3139,7 @@ const prevArrowClicked = () => {
     }
     successAlert()
     const openedOption = options.map((option) => {
-      if (option.value === selector + 1) return {...option, isDisabled: !option.isDisabled};
+      if (option.value === selector + 1) return {...option, isDisabled: false};
       else return option;
     });
     setOptions(openedOption)
