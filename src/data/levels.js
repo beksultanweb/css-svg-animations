@@ -34,7 +34,8 @@ export const levels =
         25%  {background-color: yellow;}
         50%  {background-color: blue;}
         100% {background-color: green;}
-      }`
+      }`,
+      "src": "/icons/giphy.gif"
     },
     {
       "id": 3,
@@ -55,7 +56,8 @@ export const levels =
         50%  {background-color:blue; left:200px; top:200px;}
         75%  {background-color:green; left:0px; top:200px;}
         100% {background-color:red; left:0px; top:0px;}
-      }`
+      }`,
+      "src": "/icons/3-6.gif"
     },
      {
       "id": 4,
@@ -104,7 +106,8 @@ export const levels =
         50%  {background-color:blue; left:200px; top:200px;}
         75%  {background-color:green; left:0px; top:200px;}
         100% {background-color:red; left:0px; top:0px;}
-      }`
+      }`,
+      "src": "/icons/3-6.gif"
     },
     {
       "id": 6,
@@ -134,7 +137,8 @@ export const levels =
         50%  {background-color:blue; left:200px; top:200px;}
         75%  {background-color:green; left:0px; top:200px;}
         100% {background-color:red; left:0px; top:0px;}
-      }`
+      }`,
+      "src": "/icons/3-6.gif"
     },
     {
       "id": 7,
@@ -169,7 +173,8 @@ export const levels =
       @keyframes mymove {
         from {left: 0px;}
         to {left: 300px;}
-      }`
+      }`,
+      "src": "/icons/lv7.gif"
     },
     {
       "id": 8,
@@ -186,7 +191,8 @@ export const levels =
       <span class="spanish">both</span> - The animation will follow the rules for both forwards and backwards, extending the animation properties in both directions
       <br></br>The following example lets the <div> element retain the style values from the last keyframe when the animation ends:`,
       "styles": "h1{color: green;}",
-      "secret_answer": ``
+      "secret_answer": ``,
+      "src": "/icons/lv8.gif"
     },
     {
       "id": 9,
@@ -206,7 +212,8 @@ export const levels =
       }
       svg:hover #blue2{
         transform: translateX(0%)
-      }`
+      }`,
+      "src": "/icons/hover.gif"
     },
     {
       "id": 10,
@@ -237,7 +244,8 @@ export const levels =
         to{
             transform: rotateX(15deg);
         }
-    }`
+    }`,
+    "src": "/icons/bicycle.gif"
     },
     {
       "id": 11,
@@ -261,7 +269,8 @@ export const levels =
         to{
           transform: translateX(100%)
         }
-      }`
+      }`,
+      "src": "/icons/cloud.gif"
     },
     {
       "id": 13,
@@ -322,20 +331,23 @@ export const levels =
         to {
           width: 20px;
         }
-      }`
+      }`,
+      "src": "/icons/helicop.gif"
     },
     {
       "id": 14,
       "name": "Level 14",
       "task": `Animate moon as example`,
       "styles": "h1{color: green;}",
-      "secret_answer": ``
+      "secret_answer": ``,
+      "src": "/icons/earth.gif"
     },
     {
       "id": 15,
       "name": "Level 15",
       "task": `Star wars ^^) Click "Example" to start!`,
       "styles": "h1{color: green;}",
-      "secret_answer": ``
+      "secret_answer": ``,
+      "src": "/icons/starwars.gif"
     },
 ]
