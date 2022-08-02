@@ -82,7 +82,8 @@ export const levels =
         50%  {background-color:blue; left:200px; top:200px;}
         75%  {background-color:green; left:0px; top:200px;}
         100% {background-color:red; left:0px; top:0px;}
-      }`
+      }`,
+      "src": "/icons/3-6.gif"
     },
     {
       "id": 5,
@@ -252,7 +253,8 @@ export const levels =
       "name": "Level 11",
       "task": `The ids to animating is already in the editor: bus and plane. You need to animate this as in the example button. Have fun!:)`,
       "styles": "h1{color: green;}",
-      "secret_answer": `#bus{ animation: forward 4s linear infinite; } #plane{ animation: planed 10s linear infinite; } @keyframes forward { from{ transform: translateX(-40%); } to{ transform: translateX(120%); } } @keyframes planed { 0% { transform: translate(-100%, -40%) } 25%{ transform: translate(-30%, 30%) } 100% { transform: translate(100%) rotate(20deg) } } }`
+      "secret_answer": `#bus{ animation: forward 4s linear infinite; } #plane{ animation: planed 10s linear infinite; } @keyframes forward { from{ transform: translateX(-40%); } to{ transform: translateX(120%); } } @keyframes planed { 0% { transform: translate(-100%, -40%) } 25%{ transform: translate(-30%, 30%) } 100% { transform: translate(100%) rotate(20deg) } } }`,
+      "src": "/icons/plane.gif"
     },
     {
       "id": 12,
@@ -349,5 +351,5 @@ export const levels =
       "styles": "h1{color: green;}",
       "secret_answer": ``,
       "src": "/icons/starwars.gif"
-    },
+    }
 ]

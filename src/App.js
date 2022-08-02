@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotateRight, faCheck } from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2' 
 import {levels} from "./data/levels";
+import Winner from "./components/winner"
 
 const level1 = `
 <h1>CSS Animation</h1>
@@ -3251,6 +3252,7 @@ const prevArrowClicked = () => {
         </div>
       </div>
       {openModal&&<Modal poiskId={poiskId} closeModal={() => setOpenModal(false)}/>}
+      {selector === 15 && <Winner closeModal={() => setOpenModal(false)}/>}
     </div>
   );
 }

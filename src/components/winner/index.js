@@ -1,17 +1,17 @@
 import React from "react";
 import "./style.css";
-import {levels} from "../../data/levels";
+// import {gifka} from "/icons/200.gif"
 
-const Modal = ({ poiskId, closeModal }) => {
-    const level = levels.find((item) => item.id === poiskId);
-    if(!level) return null;
+const Winner = ({closeModal}) => {
+    
     return (
         <div className="modal-bg">
             <div className="modal-container">
-                <img src={level.src} alt="...loading" />
+                <h1>You passed</h1>
+                <img src="/icons/200.gif" alt="...loading" />
                 <button onClick={() => closeModal(false)}>OK</button>
             </div>
         </div>
     )
 }
-export default Modal;
+export default Winner;
