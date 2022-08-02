@@ -1,16 +1,20 @@
 import React from "react";
 import "./style.css";
 import {levels} from "../../data/levels";
+import Button from "../Button";
 import Select from "react-select"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
 
-const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,prevArrowClicked, showAnswer, handleShowAnswer }) => {
+const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClicked,options,prevArrowClicked, showAnswer, handleShowAnswer }) => {
+    
     return (
         <div className="task-info">
             {selector === 0 && levels.filter((item) => item.id === 1).map((level) => (
                 <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -22,7 +26,9 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
+                
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
                     {showAnswer&&level.secret_answer}
@@ -33,7 +39,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "130vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -43,13 +49,9 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         isOptionDisabled={(option) => option.isDisabled}
                         onChange={handleSelectorChange}
                         />
-                    {/* <select value={selector} ref={ref} placeholder="Choose your level" className="level-dropdown" onChange={handleSelectorChange} >
-                        {options.map((el) => (
-                            <option key={el.id} value={el.id}>{el.value} of 20</option>
-                        ))}
-                    </select> */}
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                 <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
 
@@ -63,25 +65,19 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
-                        // name={options.id}
                         options={options}
-                        // placeholder="Choose your level"
                         className="level-dropdown"
                         isSearchable={false}
                         isOptionDisabled={(option) => option.isDisabled}
                         onChange={handleSelectorChange}
                         />
-                    {/* <select value={selector} ref={ref} placeholder="Choose your level" className="level-dropdown" onChange={handleSelectorChange} >
-                        {options.map((el) => (
-                            <option key={el.id} value={el.id}>{el.value} of 20</option>
-                        ))}
-                    </select> */}
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                 <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
 
@@ -94,7 +90,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "110vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -106,6 +102,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
@@ -116,7 +113,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "110vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -128,6 +125,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
@@ -138,7 +136,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "110vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -150,6 +148,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
@@ -160,7 +159,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "110vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -172,6 +171,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
@@ -182,7 +182,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "110vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -194,6 +194,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
@@ -204,7 +205,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "110vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -216,6 +217,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
@@ -226,7 +228,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "110vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -238,6 +240,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
@@ -248,7 +251,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "110vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -260,6 +263,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
@@ -270,7 +274,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "110vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -282,6 +286,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
@@ -292,7 +297,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "110vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -304,6 +309,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
@@ -314,7 +320,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "110vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -326,6 +332,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
@@ -336,7 +343,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                 <div style={{height: "110vh"}} key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
-                    <div className="level-btns">
+                    <div className="task-main-btns"><div className="level-btns">
                     <span className="left-arrow" onClick={prevArrowClicked}></span>
                     <Select
                         value={options.find((option) => (option.value === selector ? option.label:""))}
@@ -348,6 +355,7 @@ const TaskInfo = ({ selector, handleSelectorChange, nextArrowClicked,options,pre
                         />
                     <span className="right-arrow" onClick={nextArrowClicked}></span>
                 </div>
+                <Button title='Example' onClick={() => handleExample(level)} icon={<FontAwesomeIcon size="xl" icon={faLightbulb} />}></Button></div>
                 </div>
                     <div style={{fontSize: '18px', color: '#fff'}} dangerouslySetInnerHTML={{ __html: level.task }} />
                     <div className="showme" onClick={handleShowAnswer}>Show the answer</div>
