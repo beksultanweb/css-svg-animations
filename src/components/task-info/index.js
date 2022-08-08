@@ -11,7 +11,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
     return (
         <div className="task-info">
             {selector === 0 && levels.filter((item) => item.id === 1).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -36,7 +36,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
             ))}
 
 {selector === 1 && levels.filter((item) => item.id === 2).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -62,7 +62,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
             ))}
 
 {selector === 2 && levels.filter((item) => item.id === 3).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -87,7 +87,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
                 </div>
             ))}
             {selector === 3 && levels.filter((item) => item.id === 4).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -110,7 +110,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
                 </div>
             ))}
             {selector === 4 && levels.filter((item) => item.id === 5).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -133,7 +133,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
                 </div>
             ))}
             {selector === 5 && levels.filter((item) => item.id === 6).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -156,7 +156,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
                 </div>
             ))}
             {selector === 6 && levels.filter((item) => item.id === 7).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -179,7 +179,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
                 </div>
             ))}
             {selector === 7 && levels.filter((item) => item.id === 8).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -202,7 +202,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
                 </div>
             ))}
             {selector === 8 && levels.filter((item) => item.id === 9).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -225,7 +225,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
                 </div>
             ))}
             {selector === 9 && levels.filter((item) => item.id === 10).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -248,7 +248,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
                 </div>
             ))}
             {selector === 10 && levels.filter((item) => item.id === 11).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -271,7 +271,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
                 </div>
             ))}
             {selector === 11 && levels.filter((item) => item.id === 12).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -294,7 +294,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
                 </div>
             ))}
             {selector === 12 && levels.filter((item) => item.id === 13).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -317,7 +317,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
                 </div>
             ))}
             {selector === 13 && levels.filter((item) => item.id === 14).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
@@ -340,7 +340,7 @@ const TaskInfo = ({ handleExample, selector, handleSelectorChange, nextArrowClic
                 </div>
             ))}
             {selector === 14 && levels.filter((item) => item.id === 15).map((level) => (
-                <div style={{height: "200vh"}} key={level.name}>
+                <div className="level1" key={level.name}>
                     <div className="task-header">
                     <div style={{fontSize: "24px", fontWeight: "700", color: "#FFC745"}}>{level.name}</div>
                     <div className="task-main-btns"><div className="level-btns">
