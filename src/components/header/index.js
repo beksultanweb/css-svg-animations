@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <div className="header-wrapper">
             <div className="header-row">
-                <div className="logoTxt"><Logo className="logo"/><div className="txt">&(SMIL) animations</div></div>
+                <div className="logoTxt"><Logo className="logo"/><div className="txt">animations</div></div>
                 <div className="buttons">
                     <a href={"mailto: beksultan.sagnaev@gmail.com"}>Write feedback</a>
                 </div>
